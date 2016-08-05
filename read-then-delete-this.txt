@@ -1,0 +1,17 @@
+delete this file after reading!
+or... you can keep this file and ignore the warning by using the flag -read
+
+!!! remember to first start the program by creating/setting a starting lat/long location, if you haven't started the program yet it'll be 0,0 !!!
+
+create a home point:
+./spoofgo -coordinates-add-key "home" -coordinates-add-lat 49.299273 -coordinates-add-long -123.120940
+load home location:
+./spoofgo -coordinates-set "home"
+or list all of the currently saved locations and load one of them
+./spoofgo -coordinates-list
+
+you can spawn the api with the flag -api
+by default you can visit http://localhost:8844/ to see the api and a browser based controller (which is currently very basic)
+if you wish to use the browser based controller or api and not use the cli you can disable it with the flag -nogui
+
+be sure to check out the news tab!

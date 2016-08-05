@@ -1,0 +1,150 @@
+amsterdam:
+  latitude: 52.35904
+  longitude: 4.88391
+antananarivo:
+  latitude: -18.921516
+  longitude: 47.532906
+antarctic:
+  latitude: -64.825096
+  longitude: -63.494244
+area 51:
+  latitude: 37.235
+  longitude: -115.81111
+athens:
+  latitude: 37.971676
+  longitude: 23.72567
+auckland:
+  latitude: -36.852432
+  longitude: 174.76299
+ayers rock:
+  latitude: -25.342766
+  longitude: 131.02148
+bangkok:
+  latitude: 13.748142
+  longitude: 100.494865
+beijing:
+  latitude: 39.911625
+  longitude: 116.39105
+berlin:
+  latitude: 52.51729
+  longitude: 13.376088
+budapest:
+  latitude: 47.50646
+  longitude: 19.047049
+cape town:
+  latitude: -33.927193
+  longitude: 18.41687
+casablanca:
+  latitude: 33.60716
+  longitude: -7.632712
+cusco:
+  latitude: -13.52027
+  longitude: -71.97533
+delhi:
+  latitude: 28.613169
+  longitude: 77.23097
+dubai:
+  latitude: 25.196957
+  longitude: 55.273296
+dublin:
+  latitude: 53.342484
+  longitude: -6.266682
+funchal:
+  latitude: 32.64943
+  longitude: -16.90892
+giza:
+  latitude: 29.976791
+  longitude: 31.135431
+havana:
+  latitude: 23.142954
+  longitude: -82.35635
+helsinki:
+  latitude: 60.174973
+  longitude: 24.945745
+honolulu:
+  latitude: 21.271418
+  longitude: -157.82283
+istanbul:
+  latitude: 41.0059
+  longitude: 28.977371
+jerusalem:
+  latitude: 31.777847
+  longitude: 35.234665
+london:
+  latitude: 51.50053
+  longitude: -0.125402
+medellin:
+  latitude: 6.252106
+  longitude: -75.56836
+melbourne:
+  latitude: -37.80545
+  longitude: 144.97136
+mexico city:
+  latitude: 19.433445
+  longitude: -99.13333
+montreal:
+  latitude: 45.504753
+  longitude: -73.55717
+moscow:
+  latitude: 55.75101
+  longitude: 37.618336
+nairobi:
+  latitude: -1.287982
+  longitude: 36.816032
+new york:
+  latitude: 40.758774
+  longitude: -73.98513
+noumea:
+  latitude: -22.2711
+  longitude: 166.44179
+osaka:
+  latitude: 34.685997
+  longitude: 135.52562
+paris:
+  latitude: 48.857094
+  longitude: 2.29636
+pontianak:
+  latitude: 0
+  longitude: 109.33419
+prague:
+  latitude: 50.090202
+  longitude: 14.400496
+pyongyang:
+  latitude: 39.03493
+  longitude: 125.73267
+rio:
+  latitude: -23.014526
+  longitude: -43.31206
+rome:
+  latitude: 41.899162
+  longitude: 12.47689
+san francisco:
+  latitude: 37.768997
+  longitude: -122.467354
+seoul:
+  latitude: 37.5656
+  longitude: 126.97476
+sydney:
+  latitude: 151.21446
+  longitude: 151.21446
+tokyo:
+  latitude: 35.687527
+  longitude: 139.75504
+toronto:
+  latitude: 43.646824
+  longitude: -79.37745
+tucson:
+  latitude: 32.15568
+  longitude: -110.84063
+ulaanbaatar:
+  latitude: 47.918465
+  longitude: 106.9177
+vancouver:
+  latitude: 49.28222
+  longitude: -123.12116
+venice:
+  latitude: 45.434376
+  longitude: 12.338907
+washington:
+  latitude: 38.898613
+  longitude: -77.036545
