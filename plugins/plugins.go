@@ -6,6 +6,7 @@ package plugins
 import (
 	"sabey.co/spoofgo/api"
 	"sabey.co/spoofgo/plugins/plugin"
+	"sabey.co/spoofgo/plugins/plugin/mockgeofix"
 	"sabey.co/spoofgo/plugins/plugin/standard"
 )
 
@@ -18,6 +19,12 @@ var (
 		// this is the standard plugin
 		"standard-http": standard.HTTP,
 		"standard-log":  standard.Log,
+		// mockgeofix
+		// posts lat/long via tcp
+		// todo: altitude?
+		// https://play.google.com/store/apps/details?id=github.luv.mockgeofix&hl=en
+		// https://github.com/luv/mockgeofix
+		"mockgeofix": mockgeofix.MOCKGEOFIX,
 	}
 )
 
