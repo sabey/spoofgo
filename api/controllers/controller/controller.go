@@ -23,7 +23,7 @@ type Controller struct {
 type State struct {
 	// unsafe
 	Plugin *p.Plugin
-	// kv isn't used for anything yet, but it can be used to pass state
+	// KeyValue can be set with the flag -controller-kv
 	KeyValue map[string]interface{}
 }
 

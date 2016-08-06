@@ -30,7 +30,7 @@ type State struct {
 	// unsafe
 	Addr       string
 	HTTPClient *http.Client
-	// kv isn't used for anything yet, but it can be used to pass state
+	// KeyValue can be set with the flag -plugin-kv
 	KeyValue map[string]interface{}
 }
 type Info struct {

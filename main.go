@@ -51,6 +51,7 @@ var (
 	flag_plugin       = flag.String("plugin", "", "Which Plugin to use?")
 	flag_plugin_addr  = flag.String("plugin-addr", "", "Plugin Call Address")
 	flag_plugin_every = flag.String("plugin-every", "500ms", `Plugin Call Every ("ns", "us" (or "µs"), "ms", "s", "m", "h")?`)
+	flag_plugin_kv    = flag.String("plugin-kv", `{"key":"value"}`, "Plugin KeyValue Json Object map[string]interface{} (*Optional, Plugin Dependent!*)")
 	// api
 	flag_api      = flag.Bool("api", false, "Start Local Browser Controller/API Server")
 	flag_api_addr = flag.String("api-addr", ":8844", "Server Local Browser Controller/API Address \"localhost:8844\"")
@@ -60,6 +61,7 @@ var (
 	// controller
 	flag_controller_list = flag.Bool("controller-list", false, "List all Controllers and exit")
 	flag_controller      = flag.String("controller", "standard", "Which Controller to use?")
+	flag_controller_kv   = flag.String("controller-kv", `{"key":"value"}`, "Controller KeyValue Json Object map[string]interface{} (*Optional, Controller Dependent!*)")
 	// coordinates
 	// if we have multiple instances of spoofgo running, adding and deleting coordinates won't work currently if the running app decides to save and overwrite
 	// we can fix this by not storing coordinates in memory but we will have to reload from the file on every call
@@ -179,14 +181,24 @@ func init() {
 		}
 		clog.LogBoth(fmt.Sprintf("Running Plugin \"%s\" every %s!", *flag_plugin, every.String()))
 		// create plugin
+		plugin_state := &plug.State{
+			Addr:       *flag_plugin_addr,
+			HTTPClient: http.DefaultClient,
+			KeyValue:   make(map[string]interface{}),
+		}
+		if len(*flag_plugin_kv) > 0 {
+			d := json.NewDecoder(bytes.NewReader([]byte(*flag_plugin_kv)))
+			d.UseNumber()
+			if err := d.Decode(&plugin_state.KeyValue); err != nil {
+				log.Fatalf("FAILED TO UNMARSHAL -plugin-kv: \"%s\"\n", err)
+				return
+			}
+		}
 		plugin = plug.Create(
 			version.GetVersion(), // version
-			&plug.State{
-				Addr:       *flag_plugin_addr,
-				HTTPClient: http.DefaultClient,
-			}, // state
-			*flag_plugin,       // using
-			plugs.GetPlugins(), // list of plugins, since we can't include plugins package
+			plugin_state,         // state
+			*flag_plugin,         // using
+			plugs.GetPlugins(),   // list of plugins, since we can't include plugins package
 			func() bool {
 				// plugin and server objects aren't thread safe!
 				// call plugin.Start() after creating this plugin object AND the server object and we won't have to worry about that!
@@ -209,11 +221,21 @@ func init() {
 		}
 		clog.LogBoth(fmt.Sprintf("Using API Controller \"%s\"!", *flag_controller))
 		// create controller
+		controller_state := &control.State{
+			Plugin:   plugin,
+			KeyValue: make(map[string]interface{}),
+		}
+		if len(*flag_controller_kv) > 0 {
+			d := json.NewDecoder(bytes.NewReader([]byte(*flag_controller_kv)))
+			d.UseNumber()
+			if err := d.Decode(&controller_state.KeyValue); err != nil {
+				log.Fatalf("FAILED TO UNMARSHAL -controller-kv: \"%s\"\n", err)
+				return
+			}
+		}
 		controller = control.Create(
-			version.GetVersion(), // version
-			&control.State{
-				Plugin: plugin,
-			}, // state
+			version.GetVersion(),      // version
+			controller_state,          // state
 			*flag_controller,          // using
 			controls.GetControllers(), // list of controllers, since we can't include controllers package
 			func(
