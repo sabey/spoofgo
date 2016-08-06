@@ -30,3 +30,5 @@ Increase:	R, =, +, Page Up
 Decrease:	F, -, _, Page Down
 Reset:		V, 0
 ```
+
+![Spoof.go](https://spoofgo.com/spoofgo.gif?git)
